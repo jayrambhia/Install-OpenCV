@@ -27,7 +27,7 @@ make
 sudo make install
 cd ..
 echo "Downloading OpenCV 2.4.1"
-wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.1/OpenCV-2.4.1.tar.bz2/download
+wget -O OpenCV-2.4.1.tar.bz2 http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.1/OpenCV-2.4.1.tar.bz2/download
 echo "Installing OpenCV 2.4.1"
 tar -xvf OpenCV-2.4.1.tar.bz2
 mkdir build
