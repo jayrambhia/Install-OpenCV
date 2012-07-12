@@ -14,7 +14,7 @@ wget http://ffmpeg.org/releases/ffmpeg-0.11.1.tar.bz2
 echo "Installing ffmpeg"
 tar -xvf ffmpeg-0.11.1.tar.bz2
 cd ffmpeg-0.11.1/
-./configure –enable-gpl –enable-libfaac –enable-libmp3lame –enable-libopencore-amrnb –enable-libopencore-amrwb –enable-libtheora –enable-libvorbis –enable-libx264 –enable-libxvid –enable-nonfree –enable-postproc –enable-version3 –enable-x11grab –enable-pic –enable-shared
+./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis --enable-libx264 --enable-libxvid --enable-nonfree --enable-postproc --enable-version3 --enable-x11grab
 make
 sudo make install
 cd ..
@@ -32,7 +32,7 @@ echo "Installing OpenCV 2.4.2"
 tar -xvf OpenCV-2.4.2.tar.bz2
 mkdir build
 cd build
-cmake -D WITH_QT=ON -D WITH_XINE=OFF -D WITH_OPENGL=ON -D WITH_TBB=ON -D BUILD_EXAMPLES=ON ..
+cmake -D CMAKE_BUILD_TYPE=RELEASE ..
 make
 sudo make install
 sudo echo “/usr/local/lib” >> /etc/ld.so.conf
