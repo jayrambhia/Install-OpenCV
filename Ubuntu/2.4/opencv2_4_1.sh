@@ -1,6 +1,8 @@
 echo "Installing OpenCV 2.4.1"
 mkdir OpenCV
 cd OpenCV
+echo "Removing any pre-installed ffmpeg and x264"
+sudo apt-get remove remove ffmpeg x264 libx264-dev
 echo "Installing Dependenices"
 sudo apt-get install libopencv-dev
 sudo apt-get install build-essential checkinstall cmake pkg-config yasm
