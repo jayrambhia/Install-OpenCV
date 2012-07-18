@@ -12,14 +12,7 @@ sudo apt-get install python-dev python-numpy
 sudo apt-get install libtbb-dev
 sudo apt-get install libqt4-dev libgtk2.0-dev
 echo "Downloading ffmpeg"
-wget http://ffmpeg.org/releases/ffmpeg-0.11.1.tar.bz2
-echo "Installing ffmpeg"
-tar -xvf ffmpeg-0.11.1.tar.bz2
-cd ffmpeg-0.11.1/
-./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis --enable-libx264 --enable-libxvid --enable-nonfree --enable-postproc --enable-version3 --enable-x11grab
-make
-sudo make install
-cd ..
+sudo apt-get install ffmpeg
 echo "Downloading v4l"
 wget http://www.linuxtv.org/downloads/v4l-utils/v4l-utils-0.8.8.tar.bz2
 echo "Installing v4l"
