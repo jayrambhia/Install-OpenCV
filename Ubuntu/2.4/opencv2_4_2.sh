@@ -1,3 +1,9 @@
+arch=$(uname -m)
+if [ "$arch" == "i686" -o "$arch" == "i386" -o "$arch" == "i486" -o "$arch" == "i586" ]; then
+flag=1
+else
+flag=0
+fi
 echo "Installing OpenCV 2.4.2"
 mkdir OpenCV
 cd OpenCV
@@ -11,12 +17,29 @@ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-
 sudo apt-get install python-dev python-numpy
 sudo apt-get install libtbb-dev
 sudo apt-get install libqt4-dev libgtk2.0-dev
+echo "Downloading x264"
+wget ftp://ftp.videolan.org/pub/videolan/x264/snapshots/x264-snapshot-20120528-2245-stable.tar.bz2
+tar -xvf x264-snapshot-20120528-2245-stable.tar.bz2
+cd x264-snapshot-20120528-2245-stable/
+echo "Installing x264"
+if [ $flag -eq 1 ]; then
+./configure --enable-static
+else
+./configure --enable-shared --enable-pic
+fi
+make
+sudo make install
+cd ..
 echo "Downloading ffmpeg"
 wget http://ffmpeg.org/releases/ffmpeg-0.11.1.tar.bz2
 echo "Installing ffmpeg"
 tar -xvf ffmpeg-0.11.1.tar.bz2
 cd ffmpeg-0.11.1/
+if [ $flag -eq 1 ]; then
 ./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis --enable-libx264 --enable-libxvid --enable-nonfree --enable-postproc --enable-version3 --enable-x11grab
+else
+./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis --enable-libx264 --enable-libxvid --enable-nonfree --enable-postproc --enable-version3 --enable-x11grab --enable-shared
+fi
 make
 sudo make install
 cd ..
