@@ -34,7 +34,7 @@ echo "Installing OpenCV 2.4.2"
 tar -xvf OpenCV-2.4.2.tar.bz2
 mkdir build
 cd build
-cmake -D CMAKE_BUILD_TYPE=RELEASE ..
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D USE TBB: YES USE CUDA: YES BUILD_PYTHON_SUPPORT=ON ..
 make
 sudo make install
 sudo echo “/usr/local/lib” >> /etc/ld.so.conf
