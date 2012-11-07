@@ -61,6 +61,6 @@ cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE ..
 make
 sudo make install
-sudo echo “/usr/local/lib” >> /etc/ld.so.conf
+sudo echo "/usr/local/lib" >> /etc/ld.so.conf
 sudo ldconfig
 echo "OpenCV 2.4.2 ready to be used"
