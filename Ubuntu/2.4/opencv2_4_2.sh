@@ -32,9 +32,10 @@ echo "Downloading OpenCV 2.4.2"
 wget -O OpenCV-2.4.2.tar.bz2 http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.2/OpenCV-2.4.2.tar.bz2/download
 echo "Installing OpenCV 2.4.2"
 tar -xvf OpenCV-2.4.2.tar.bz2
+cd OpeCV-2.4.2
 mkdir build
 cd build
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D USE TBB: YES USE CUDA: YES BUILD_PYTHON_SUPPORT=ON ..
+cmake -D CMAKE_INSTALL_PREFIX=/home/your_login/opt/opencv_intall -D BUILD_PYTHON_SUPPORT=ON -D BUILD_EXAMPLES=ON ..
 make
 sudo make install
 sudo echo “/usr/local/lib” >> /etc/ld.so.conf
