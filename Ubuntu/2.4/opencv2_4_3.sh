@@ -8,16 +8,16 @@ echo "Installing OpenCV 2.4.3"
 mkdir OpenCV
 cd OpenCV
 echo "Removing any pre-installed ffmpeg and x264"
-sudo apt-get remove ffmpeg x264 libx264-dev
+sudo apt-get -y remove ffmpeg x264 libx264-dev
 echo "Installing Dependenices"
-sudo apt-get install libopencv-dev
-sudo apt-get install build-essential checkinstall cmake pkg-config yasm
-sudo apt-get install libtiff4-dev libjpeg-dev libjasper-dev
-sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev
-sudo apt-get install python-dev python-numpy
-sudo apt-get install libtbb-dev
-sudo apt-get install libqt4-dev libgtk2.0-dev
-sudo apt-get install libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev
+sudo apt-get -y install libopencv-dev
+sudo apt-get -y install build-essential checkinstall cmake pkg-config yasm
+sudo apt-get -y install libtiff4-dev libjpeg-dev libjasper-dev
+sudo apt-get -y install libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev
+sudo apt-get -y install python-dev python-numpy
+sudo apt-get -y install libtbb-dev
+sudo apt-get -y install libqt4-dev libgtk2.0-dev
+sudo apt-get -y install libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev
 echo "Downloading x264"
 wget ftp://ftp.videolan.org/pub/videolan/x264/snapshots/x264-snapshot-20121114-2245-stable.tar.bz2
 tar -xvf x264-snapshot-20121114-2245-stable.tar.bz2
