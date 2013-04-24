@@ -35,7 +35,7 @@ wget -O OpenCV-2.4.2.tar.bz2 http://sourceforge.net/projects/opencvlibrary/files
 echo "Installing OpenCV 2.4.2"
 tar -xvf OpenCV-2.4.2.tar.bz2
 rm OpenCV-2.4.2.tar.bz2
-cd OpeCV-2.4.2
+cd OpenCV-2.4.2
 mkdir build
 cd build
 cmake -D CMAKE_INSTALL_PREFIX=/home/your_login/opt/opencv_intall -D BUILD_PYTHON_SUPPORT=ON -D BUILD_EXAMPLES=ON ..
