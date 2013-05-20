@@ -2,6 +2,7 @@ echo "Installing OpenCV 2.4.2"
 mkdir OpenCV
 cd OpenCV
 echo "Removing any pre-installed ffmpeg and x264"
+sudo apt-get update
 sudo apt-get remove remove ffmpeg x264 libx264-dev
 echo "Installing Dependenices"
 sudo apt-get install libopencv-dev
@@ -15,9 +16,9 @@ echo "Downloading ffmpeg"
 wget http://ffmpeg.org/releases/ffmpeg-0.11.1.tar.bz2
 echo "Installing ffmpeg"
 tar -xvf ffmpeg-0.11.1.tar.bz2
-rm ffmpeg-0.11.1.tar.z2
+rm ffmpeg-0.11.1.tar.bz2
 cd ffmpeg-0.11.1/
-./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis --enable-libx264 --enable-libxvid --enable-nonfree --enable-postproc --enable-version3 --enable-x11grab
+./configure
 make
 sudo make install
 cd ..
