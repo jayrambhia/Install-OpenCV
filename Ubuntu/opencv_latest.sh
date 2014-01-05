@@ -1,15 +1,34 @@
 version="$(wget -q -O - http://sourceforge.net/projects/opencvlibrary/files/opencv-unix | egrep -m1 -o '\"[0-9](\.[0-9])+' | cut -c2-)"
+downloadfilelist="opencv-$version.tar.gz opencv-$version.zip"
+downloadfile=
+for file in $downloadfilelist; 
+do 
+	wget --spider http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/$version/$file/download
+	if [ $? -eq 0 ]; then
+		downloadfile=$file
+	fi
+done
+if [ -z "$downloadfile" ]; then
+	echo "Could not find download file on sourceforge page.  Please find the download file for version $version at"
+	echo "http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/$version/ and update this script"
+	exit  1
+fi
 echo "Installing OpenCV" $version
 mkdir OpenCV
 cd OpenCV
 echo "Removing any pre-installed ffmpeg and x264"
 sudo apt-get -qq remove ffmpeg x264 libx264-dev
 echo "Installing Dependenices"
-sudo apt-get -qq install libopencv-dev build-essential checkinstall cmake pkg-config yasm libtiff4-dev libjpeg-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev python-dev python-numpy libtbb-dev libqt4-dev libgtk2.0-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils ffmpeg
+sudo apt-get -qq install libopencv-dev build-essential checkinstall cmake pkg-config yasm libtiff4-dev libjpeg-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev python-dev python-numpy libtbb-dev libqt4-dev libgtk2.0-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils ffmpeg unzip
 echo "Downloading OpenCV" $version
-wget -O OpenCV-$version.tar.gz http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/$version/opencv-"$version".tar.gz/download
+wget -O $downloadfile http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/$version/$downloadfile/download
 echo "Installing OpenCV" $version
-tar -xvf OpenCV-$version.tar.gz
+echo $downloadfile | grep ".zip"
+if [ $? -eq 0 ]; then
+	unzip $downloadfile
+else
+	tar -xvf $downloadfile
+fi
 cd opencv-$version
 mkdir build
 cd build
