@@ -3,6 +3,7 @@
 # Call this script after configuring variables:
 # version - the version of OpenCV to be installed
 # downloadfile - the name of the OpenCV download file
+# dldir - the download directory (optional, if not specified creates an OpenCV directory in the working dir)
 if [[ -z "$version" ]]; then
 	echo "Please define version before calling `basename $0` or use a wrapper like opencv_latest.sh"
 	exit 1
@@ -11,14 +12,16 @@ if [[ -z "$downloadfile" ]]; then
 	echo "Please define downloadfile before calling `basename $0` or use a wrapper like opencv_latest.sh"
 	exit 1
 fi
+if [[ -z "$dldir" ]]; then
+	dldir=OpenCV
+fi
 echo "Installing OpenCV" $version
-mkdir -p OpenCV
-cd OpenCV
+mkdir -p $dldir
+cd $dldir
 echo "Installing Dependencies"
 sudo yum -y install http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-set -e
 sudo yum -y groupinstall "Development Tools"
-sudo yum -y install unzip opencv opencv-devel gtk2-devel
+sudo yum -y install wget unzip opencv opencv-devel gtk2-devel cmake
 if [ ! -f $downloadfile ]; then
 	echo "Downloading OpenCV" $version
 	wget -O $downloadfile http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/$version/$downloadfile/download
