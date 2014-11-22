@@ -10,16 +10,18 @@ cd OpenCV
 echo "Removing any pre-installed ffmpeg and x264"
 sudo apt-get -y remove ffmpeg x264 libx264-dev
 echo "Installing Dependenices"
-sudo apt-get -y install libopencv-dev
-sudo apt-get -y install build-essential checkinstall cmake pkg-config yasm
-sudo apt-get -y install libtiff4-dev libjpeg-dev libjasper-dev
-sudo apt-get -y install libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev
-sudo apt-get -y install python-dev python-numpy
-sudo apt-get -y install libtbb-dev
-sudo apt-get -y install libqt4-dev libgtk2.0-dev
-sudo apt-get -y install libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev
-sudo apt-get -y install x264 v4l-utils ffmpeg
-sudo apt-get -y install libgtk2.0-dev
+sudo apt-get -y install \
+	wget unzip \
+	libopencv-dev \
+	build-essential checkinstall cmake pkg-config yasm \
+	libtiff4-dev libjpeg-dev libjasper-dev \
+	libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev \
+	python-dev python-numpy \
+	libtbb-dev \
+	libqt4-dev libgtk2.0-dev \
+	libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev \
+	x264 v4l-utils ffmpeg \
+	libgtk2.0-dev
 echo "Downloading OpenCV 2.4.9"
 wget -O OpenCV-2.4.9.zip http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.9/opencv-2.4.9.zip/download
 echo "Installing OpenCV 2.4.9"
