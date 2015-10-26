@@ -1,3 +1,4 @@
+#!/bin/bash
 # Dan Walkes
 # 2014-01-29
 # Call this script after configuring variables:
