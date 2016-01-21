@@ -8,7 +8,7 @@ if your system is Ubuntu, run the commands below.
 ```
 $ cd Ubuntu
 $ chmod +x * 
-$ ./opencv-latest.sh
+$ ./opencv_latest.sh
 ```
 
 
