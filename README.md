@@ -17,7 +17,7 @@ if your system is RedHat, run the commands below.
 ```
 $ cd RedHat
 $ chmod +x * 
-$ ./opencv-latest.sh
+$ ./opencv_latest.sh
 ```
 
 
