@@ -25,7 +25,7 @@ if ! [ -f "OpenCV-2.4.10.zip" ]; then
   wget -O OpenCV-2.4.10.zip http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.10/opencv-2.4.10.zip/download
 fi
 echo "Installing OpenCV 2.4.10"
-if ! [ -d "opencv-2.4.10"]; then
+if ! [ -d "opencv-2.4.10" ]; then
   unzip OpenCV-2.4.10.zip
 fi
 rm OpenCV-2.4.10.zip
