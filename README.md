@@ -22,7 +22,7 @@ $ ./opencv_latest.sh
 
 
 ### ArchLinux
-if your system is RedHat, run the commands below.
+if your system is ArchLinux, run the commands below.
 ```
 $ cd ArchLinux
 $ chmod +x * 
